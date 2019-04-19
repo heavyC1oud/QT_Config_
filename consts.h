@@ -32,6 +32,7 @@ typedef enum {
     CONF_COM_START_CONFIG = 14,
     CONF_COM_STOP_CONFIG = 15,
     CONF_COM_PING = 16,
+    CONF_COM_READ_ALL_DATA = 17,
 } ConfCom_TypeDef;
 
 typedef enum {

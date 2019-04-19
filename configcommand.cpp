@@ -38,6 +38,13 @@ quint8 ConfigCommand::getDataLength()
     return dataLength;
 }
 
+void ConfigCommand::setData(quint8 len, quint8 *pData)
+{
+    for(int i = 0; i < len; i++) {
+        data[i] = *(pData + i);
+    }
+}
+
 const QByteArray &ConfigCommand::getDataArray()
 {
     return dataArray;

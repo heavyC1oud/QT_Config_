@@ -29,6 +29,7 @@ public:
     quint8 getCommand(void);
     void setDataLength(quint8 len);
     quint8 getDataLength(void);
+    void setData(quint8 len, quint8 *data);
     const QByteArray &getDataArray(void);
     READ_CRC_TypeDef CRC_Calc(RW_CRC_TypeDef set);
 
