@@ -280,6 +280,19 @@ void MainWindow::on_connect_PB_clicked()
         ui->readIPver_LE->clear();
         ui->readAPN_LE->clear();
         ui->readSWver_LE->clear();
+        ui->writePortTCP_LE->clear();
+        ui->writePortUDP_LE->clear();
+        ui->writeAdrIPv4_1_LE->clear();
+        ui->writeAdrIPv4_2_LE->clear();
+        ui->writeAdrIPv4_3_LE->clear();
+        ui->writeAdrIPv4_4_LE->clear();
+        ui->writeAdrIPv6_1_LE->clear();
+        ui->writeAdrIPv6_2_LE->clear();
+        ui->writeAdrIPv6_3_LE->clear();
+        ui->writeAdrIPv6_4_LE->clear();
+        ui->writeAdrIPv6_5_LE->clear();
+        ui->writeAdrIPv6_6_LE->clear();
+        ui->writeAPN_LE->clear();
 
         //  stop ping
         configPingTimer->stop();
@@ -439,6 +452,21 @@ void MainWindow::on_writeIPver_PB_clicked()
     }
 }
 
+//  write APN
+void MainWindow::on_writeAPN_PB_clicked()
+{
+    QString str = ui->writeAPN_LE->text();
+    QByteArray array = str.toUtf8();
+
+    quint8 data[CONFIG_COM_DATA_BUF_SIZE];
+
+    for(int i = 0; i < str.length(); i++){
+       data[i] = static_cast<quint8>(array[i]);
+    }
+
+    sendConfigCom(CONF_COM_WRITE_APN, static_cast<quint8>(str.length()), data);
+}
+
 //  Configuration Answers
 //  read TCP Port
 void MainWindow::configComReadPortTCP()
@@ -552,3 +580,5 @@ void MainWindow::configComReadSWver()
     ui->readSWver_LE->clear();
     ui->readSWver_LE->setText(str);
 }
+
+

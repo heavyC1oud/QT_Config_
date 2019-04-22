@@ -61,6 +61,8 @@ private slots:
 
     void on_writeIPver_PB_clicked();
 
+    void on_writeAPN_PB_clicked();
+
 private:
     Ui::MainWindow *ui;
 
