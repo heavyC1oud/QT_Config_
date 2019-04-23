@@ -38,6 +38,15 @@ public:
     void configComReadIPver(void);
     void configComReadAPN(void);
     void configComReadSWver(void);
+    void configComStart(void);
+    void configComStop(void);
+    void configComWritePortTCP(void);
+    void configComWritePortUDP(void);
+    void configComWriteIPv4(void);
+    void configComWriteIPv6(void);
+    void configComWriteIPver(void);
+    void configComWriteAPN(void);
+
 
 private slots:
     void on_selCOM_CB_activated(const QString &arg1);
@@ -56,11 +65,8 @@ private slots:
     void on_writePortTCP_PB_clicked();
     void on_writePortUDP_PB_clicked();
     void on_writeAdrIPv4_PB_clicked();
-
     void on_writeAdrIPv6_PB_clicked();
-
     void on_writeIPver_PB_clicked();
-
     void on_writeAPN_PB_clicked();
 
 private:
@@ -72,6 +78,7 @@ private:
     QByteArray receiveData;
     QTimer *receiveTimer;
     QTimer *configPingTimer;
+    bool connectFlag = true;
 };
 
 #endif // MAINWINDOW_H

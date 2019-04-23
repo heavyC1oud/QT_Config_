@@ -182,6 +182,38 @@ void MainWindow::recConfigCom()
         configComReadSWver();
         break;
 
+    case CONF_COM_START_CONFIG:
+        configComStart();
+        break;
+
+    case CONF_COM_STOP_CONFIG:
+        configComStop();
+        break;
+
+    case CONF_COM_WRITE_PORT_TCP:
+        configComWritePortTCP();
+        break;
+
+    case CONF_COM_WRITE_PORT_UDP:
+        configComWritePortUDP();
+        break;
+
+    case CONF_COM_WRITE_IP_V4:
+        configComWriteIPv4();
+        break;
+
+    case CONF_COM_WRITE_IP_V6:
+        configComWriteIPv6();
+        break;
+
+    case CONF_COM_WRITE_IP_VER:
+        configComWriteIPver();
+        break;
+
+    case CONF_COM_WRITE_APN:
+        configComWriteAPN();
+        break;
+
     default:
         break;
     }
@@ -214,12 +246,11 @@ void MainWindow::on_openCom_PB_clicked()
         portState = port->open(QIODevice::ReadWrite);
 
         if(!portState) {
-            ui->receiveData_TE->clear();
             ui->receiveData_TE->setText("Open Port Failed");
             return;
         }
         else {
-            ui->receiveData_TE->clear();
+            ui->receiveData_TE->setText("Open Port OK");
         }
 
         ui->openCom_PB->setText("CLOSE PORT");
@@ -247,21 +278,11 @@ void MainWindow::on_openCom_PB_clicked()
 //  connect to modem
 void MainWindow::on_connect_PB_clicked()
 {
-    static bool connectFlag = true;
-
     //  connect
     if(connectFlag) {
-        ui->connect_PB->setText("DISCONNECT");
-
-        enableButtons();
-        ui->openCom_PB->setEnabled(false);
-
         sendConfigCom(CONF_COM_START_CONFIG, 0, nullptr);
 
-        //  start ping
-        configPingTimer->start();
-
-        connectFlag = false;
+        ui->receiveData_TE->setText("Connecting...");
     }
     //  disconnect
     else {
@@ -293,6 +314,8 @@ void MainWindow::on_connect_PB_clicked()
         ui->writeAdrIPv6_5_LE->clear();
         ui->writeAdrIPv6_6_LE->clear();
         ui->writeAPN_LE->clear();
+
+        ui->receiveData_TE->clear();
 
         //  stop ping
         configPingTimer->stop();
@@ -326,42 +349,56 @@ void MainWindow::sendConfigPing()
 void MainWindow::on_readPortTCP_PB_clicked()
 {
     sendConfigCom(CONF_COM_READ_PORT_TCP, 0, nullptr);
+
+    ui->receiveData_TE->setText("Reading...");
 }
 
 //  read UDP Port
 void MainWindow::on_readPortUDP_PB_clicked()
 {
     sendConfigCom(CONF_COM_READ_PORT_UDP, 0, nullptr);
+
+    ui->receiveData_TE->setText("Reading...");
 }
 
 //  read Adr IPv4
 void MainWindow::on_readAdrIPv4_PB_clicked()
 {
     sendConfigCom(CONF_COM_READ_IP_V4, 0, nullptr);
+
+    ui->receiveData_TE->setText("Reading...");
 }
 
 //  read Adr IPv6
 void MainWindow::on_readAdrIPv6_PB_clicked()
 {
     sendConfigCom(CONF_COM_READ_IP_V6, 0, nullptr);
+
+    ui->receiveData_TE->setText("Reading...");
 }
 
 //  read IP ver
 void MainWindow::on_readIPver_PB_clicked()
 {
     sendConfigCom(CONF_COM_READ_IP_VER, 0, nullptr);
+
+    ui->receiveData_TE->setText("Reading...");
 }
 
 //  read APN
 void MainWindow::on_readAPN_PB_clicked()
 {
     sendConfigCom(CONF_COM_READ_APN, 0, nullptr);
+
+    ui->receiveData_TE->setText("Reading...");
 }
 
 //  read Software version
 void MainWindow::on_readSWver_PB_clicked()
 {
     sendConfigCom(CONF_COM_READ_SW_VER, 0, nullptr);
+
+    ui->receiveData_TE->setText("Reading...");
 }
 
 //  write TCP Port
@@ -374,6 +411,8 @@ void MainWindow::on_writePortTCP_PB_clicked()
     port[1] = static_cast<quint8>(data);
 
     sendConfigCom(CONF_COM_WRITE_PORT_TCP, 2, port);
+
+    ui->receiveData_TE->setText("Writing...");
 }
 
 //  write UDP Port
@@ -386,6 +425,8 @@ void MainWindow::on_writePortUDP_PB_clicked()
     port[1] = static_cast<quint8>(data);
 
     sendConfigCom(CONF_COM_WRITE_PORT_UDP, 2, port);
+
+    ui->receiveData_TE->setText("Writing...");
 }
 
 //  write IP v4 address
@@ -398,16 +439,9 @@ void MainWindow::on_writeAdrIPv4_PB_clicked()
     adr[2] = static_cast<quint8>((ui->writeAdrIPv4_3_LE->text()).toInt());
     adr[3] = static_cast<quint8>((ui->writeAdrIPv4_4_LE->text()).toInt());
 
-//    QString str = ui->writeAdrIPv4_LE->text();
-//    QStringList list = str.split('.');
-
-//    foreach (QString s, list) {
-//        adr[i] = static_cast<quint8>(s.toInt());
-//        i++;
-//        if(i > 3) i = 0;
-//    }
-
     sendConfigCom(CONF_COM_WRITE_IP_V4, 4, adr);
+
+    ui->receiveData_TE->setText("Writing...");
 }
 
 //  write IP v6 address
@@ -422,16 +456,9 @@ void MainWindow::on_writeAdrIPv6_PB_clicked()
     adr[4] = static_cast<quint8>((ui->writeAdrIPv6_5_LE->text()).toInt());
     adr[5] = static_cast<quint8>((ui->writeAdrIPv6_6_LE->text()).toInt());
 
-//    QString str = ui->writeAdrIPv6_LE->text();
-//    QStringList list = str.split('.');
-
-//    foreach (QString s, list) {
-//        adr[i] = static_cast<quint8>(s.toInt());
-//        i++;
-//        if(i > 5) i = 0;
-//    }
-
     sendConfigCom(CONF_COM_WRITE_IP_V6, 6, adr);
+
+    ui->receiveData_TE->setText("Writing...");
 }
 
 //  write IP version
@@ -450,6 +477,8 @@ void MainWindow::on_writeIPver_PB_clicked()
         data = IP_V6;
         sendConfigCom(CONF_COM_WRITE_IP_VER, 1, &data);
     }
+
+    ui->receiveData_TE->setText("Writing...");
 }
 
 //  write APN
@@ -465,6 +494,8 @@ void MainWindow::on_writeAPN_PB_clicked()
     }
 
     sendConfigCom(CONF_COM_WRITE_APN, static_cast<quint8>(str.length()), data);
+
+    ui->receiveData_TE->setText("Writing...");
 }
 
 //  Configuration Answers
@@ -475,8 +506,9 @@ void MainWindow::configComReadPortTCP()
 
     data = (receiveData[CONF_COM_DATA_BYTES] << 8) + receiveData[CONF_COM_DATA_BYTES + 1];
 
-    ui->readPortTCP_LE->clear();
     ui->readPortTCP_LE->setText(QString::number(data));
+
+    ui->receiveData_TE->setText("Read OK");
 }
 
 //  read UDP Port
@@ -486,8 +518,9 @@ void MainWindow::configComReadPortUDP()
 
     data = (receiveData[CONF_COM_DATA_BYTES] << 8) + receiveData[CONF_COM_DATA_BYTES + 1];
 
-    ui->readPortUDP_LE->clear();
     ui->readPortUDP_LE->setText(QString::number(data));
+
+    ui->receiveData_TE->setText("Read OK");
 }
 
 //  read IP v4 Address
@@ -506,8 +539,9 @@ void MainWindow::configComReadIPv4()
 
     str = QString::number(ip1) + "." + QString::number(ip2) + "." + QString::number(ip3) + "." + QString::number(ip4);
 
-    ui->readAdrIPv4_LE->clear();
     ui->readAdrIPv4_LE->setText(str);
+
+    ui->receiveData_TE->setText("Read OK");
 }
 
 //  read IP v6 Address
@@ -530,8 +564,9 @@ void MainWindow::configComReadIPv6()
 
     str = QString::number(ip1) + "." + QString::number(ip2) + "." + QString::number(ip3) + "." + QString::number(ip4) + "." + QString::number(ip5) + "." + QString::number(ip6);
 
-    ui->readAdrIPv6_LE->clear();
     ui->readAdrIPv6_LE->setText(str);
+
+    ui->receiveData_TE->setText("Read OK");
 }
 
 //  read IP version
@@ -542,17 +577,16 @@ void MainWindow::configComReadIPver()
     data = (receiveData[CONF_COM_DATA_BYTES]);
 
     if(data == IP_V4) {
-        ui->readIPver_LE->clear();
         ui->readIPver_LE->setText("IPv4");
     }
     else if(data == IP_V6) {
-        ui->readIPver_LE->clear();
         ui->readIPver_LE->setText("IPv6");
     }
     else {
-        ui->readIPver_LE->clear();
         ui->readIPver_LE->setText("Error");
     }
+
+    ui->receiveData_TE->setText("Read OK");
 }
 
 //  read APN
@@ -564,8 +598,9 @@ void MainWindow::configComReadAPN()
         str += receiveData[CONF_COM_DATA_BYTES + i];
     }
 
-    ui->readAPN_LE->clear();
     ui->readAPN_LE->setText(str);
+
+    ui->receiveData_TE->setText("Read OK");
 }
 
 //  read software version
@@ -579,6 +614,71 @@ void MainWindow::configComReadSWver()
 
     ui->readSWver_LE->clear();
     ui->readSWver_LE->setText(str);
+
+    ui->receiveData_TE->setText("Read OK");
+}
+
+//  start configuration mode in device
+void MainWindow::configComStart()
+{
+    //  connect
+    if(connectFlag) {
+        ui->connect_PB->setText("DISCONNECT");
+
+        enableButtons();
+        ui->openCom_PB->setEnabled(false);
+
+        //  start ping
+        configPingTimer->start();
+
+        connectFlag = false;
+    }
+
+    ui->receiveData_TE->setText("Connect OK");
+}
+
+//  stop configuration mode in device
+void MainWindow::configComStop()
+{
+    ui->receiveData_TE->setText("Disconnect OK");
+    ui->receiveData_TE->append("Device Will Restart");
+
+}
+
+//  write TCP Port answer
+void MainWindow::configComWritePortTCP()
+{
+    ui->receiveData_TE->setText("Write OK");
+}
+
+//  write UDP Port answer
+void MainWindow::configComWritePortUDP()
+{
+    ui->receiveData_TE->setText("Write OK");
+}
+
+//  write IP v4 address answer
+void MainWindow::configComWriteIPv4()
+{
+    ui->receiveData_TE->setText("Write OK");
+}
+
+//  write IP v6 address answer
+void MainWindow::configComWriteIPv6()
+{
+    ui->receiveData_TE->setText("Write OK");
+}
+
+//  write IP version answer
+void MainWindow::configComWriteIPver()
+{
+    ui->receiveData_TE->setText("Write OK");
+}
+
+//  write APN answer
+void MainWindow::configComWriteAPN()
+{
+    ui->receiveData_TE->setText("Write OK");
 }
 
 
