@@ -24,7 +24,7 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void addIPver(void);
+    void addTCPUDPMode();
     void addPorts(void);
     void enableButtons(void);
     void disableButtons(void);
@@ -34,8 +34,7 @@ public:
     void configComReadPortTCP(void);
     void configComReadPortUDP(void);
     void configComReadIPv4(void);
-    void configComReadIPv6(void);
-    void configComReadIPver(void);
+    void configComReadTCPUDPMode(void);
     void configComReadAPN(void);
     void configComReadSWver(void);
     void configComStart(void);
@@ -43,8 +42,7 @@ public:
     void configComWritePortTCP(void);
     void configComWritePortUDP(void);
     void configComWriteIPv4(void);
-    void configComWriteIPv6(void);
-    void configComWriteIPver(void);
+    void configComWriteTCPUDPMode(void);
     void configComWriteAPN(void);
 
 
@@ -56,18 +54,25 @@ private slots:
     void readData(void);
     void endReceive(void);
     void sendConfigPing(void);
+    void setConFailText(void);
     void on_readPortUDP_PB_clicked();
     void on_readAdrIPv4_PB_clicked();
-    void on_readAdrIPv6_PB_clicked();
-    void on_readIPver_PB_clicked();
+    void on_readTCPUDPMode_PB_clicked();
     void on_readAPN_PB_clicked();
     void on_readSWver_PB_clicked();
     void on_writePortTCP_PB_clicked();
     void on_writePortUDP_PB_clicked();
     void on_writeAdrIPv4_PB_clicked();
-    void on_writeAdrIPv6_PB_clicked();
-    void on_writeIPver_PB_clicked();
+    void on_writeTCPUDPMode_PB_clicked();
     void on_writeAPN_PB_clicked();
+    void on_writeAdrIPv4_1_LE_editingFinished();
+    void on_writeAdrIPv4_2_LE_editingFinished();
+    void on_writeAdrIPv4_3_LE_editingFinished();
+    void on_writeAdrIPv4_4_LE_editingFinished();
+
+    void on_writePortTCP_LE_editingFinished();
+
+    void on_writePortUDP_LE_editingFinished();
 
 private:
     Ui::MainWindow *ui;
@@ -78,6 +83,7 @@ private:
     QByteArray receiveData;
     QTimer *receiveTimer;
     QTimer *configPingTimer;
+    QTimer *connectTimer;
     bool connectFlag = true;
 };
 

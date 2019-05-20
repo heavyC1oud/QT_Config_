@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>882</width>
-    <height>349</height>
+    <width>900</width>
+    <height>320</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>0</width>
-    <height>0</height>
+    <width>900</width>
+    <height>320</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>9999</width>
-    <height>99999</height>
+    <width>900</width>
+    <height>320</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -29,15 +29,18 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
+      <x>10</x>
+      <y>10</y>
       <width>881</width>
-      <height>290</height>
+      <height>262</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_6">
          <item>
@@ -54,6 +57,9 @@
              <width>72</width>
              <height>0</height>
             </size>
+           </property>
+           <property name="insertPolicy">
+            <enum>QComboBox::InsertAtTop</enum>
            </property>
           </widget>
          </item>
@@ -143,423 +149,355 @@
       </layout>
      </item>
      <item>
-      <widget class="Line" name="line">
+      <widget class="Line" name="line_5">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
      <item>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="6" column="0">
-        <widget class="QPushButton" name="readSWver_PB">
-         <property name="text">
-          <string>READ</string>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
         </widget>
        </item>
-       <item row="4" column="0">
-        <widget class="QPushButton" name="readIPver_PB">
-         <property name="text">
-          <string>READ</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="2">
-        <widget class="QLabel" name="label_4">
-         <property name="text">
-          <string>IP v6 ADDRESS</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="1">
-        <widget class="QLineEdit" name="readSWver_LE">
-         <property name="readOnly">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="readPortUDP_LE"/>
-       </item>
-       <item row="0" column="3">
-        <widget class="QLineEdit" name="writePortTCP_LE"/>
-       </item>
-       <item row="2" column="2">
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>IP v4 ADDRESS</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="3">
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
-         <item>
-          <spacer name="horizontalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="writeAdrIPv6_1_LE">
-           <property name="maximumSize">
-            <size>
-             <width>33</width>
-             <height>16777215</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_11">
+       <item>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="2" column="2">
+          <widget class="QLabel" name="label_3">
            <property name="text">
-            <string>.</string>
+            <string>IP v4 ADDRESS</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QLineEdit" name="writeAdrIPv6_2_LE">
-           <property name="maximumSize">
-            <size>
-             <width>33</width>
-             <height>16777215</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_12">
+         <item row="1" column="4">
+          <widget class="QPushButton" name="writePortUDP_PB">
            <property name="text">
-            <string>.</string>
+            <string>WRITE</string>
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QLineEdit" name="writeAdrIPv6_3_LE">
-           <property name="maximumSize">
-            <size>
-             <width>33</width>
-             <height>16777215</height>
-            </size>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="readSWver_LE">
+           <property name="readOnly">
+            <bool>false</bool>
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QLabel" name="label_13">
+         <item row="5" column="2">
+          <widget class="QLabel" name="label_8">
            <property name="text">
-            <string>.</string>
+            <string>Software Version</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QLineEdit" name="writeAdrIPv6_4_LE">
-           <property name="maximumSize">
-            <size>
-             <width>33</width>
-             <height>16777215</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_14">
+         <item row="1" column="0">
+          <widget class="QPushButton" name="readPortUDP_PB">
            <property name="text">
-            <string>.</string>
+            <string>READ</string>
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QLineEdit" name="writeAdrIPv6_5_LE">
-           <property name="maximumSize">
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="readPortTCP_LE"/>
+         </item>
+         <item row="4" column="3">
+          <widget class="QLineEdit" name="writeAPN_LE">
+           <property name="minimumSize">
             <size>
-             <width>33</width>
-             <height>16777215</height>
+             <width>0</width>
+             <height>0</height>
             </size>
            </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
           </widget>
          </item>
-         <item>
-          <widget class="QLabel" name="label_15">
+         <item row="1" column="3">
+          <widget class="QLineEdit" name="writePortUDP_LE">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLabel" name="label_4">
            <property name="text">
-            <string>.</string>
+            <string>Mode TCP/UDP</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QLineEdit" name="writeAdrIPv6_6_LE">
-           <property name="maximumSize">
+         <item row="5" column="0">
+          <widget class="QPushButton" name="readSWver_PB">
+           <property name="text">
+            <string>READ</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="4">
+          <widget class="QPushButton" name="writeAPN_PB">
+           <property name="text">
+            <string>WRITE</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="readPortUDP_LE"/>
+         </item>
+         <item row="4" column="2">
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>APN</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QPushButton" name="readAdrIPv4_PB">
+           <property name="text">
+            <string>READ</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QPushButton" name="readAPN_PB">
+           <property name="text">
+            <string>READ</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QPushButton" name="readPortTCP_PB">
+           <property name="text">
+            <string>READ</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="4">
+          <widget class="QPushButton" name="writePortTCP_PB">
+           <property name="text">
+            <string>WRITE</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="label">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string>PORT TCP</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>PORT UDP</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="writeAdrIPv4_1_LE">
+             <property name="maximumSize">
+              <size>
+               <width>33</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>.</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="writeAdrIPv4_2_LE">
+             <property name="maximumSize">
+              <size>
+               <width>33</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>.</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="writeAdrIPv4_3_LE">
+             <property name="maximumSize">
+              <size>
+               <width>33</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_10">
+             <property name="text">
+              <string>.</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="writeAdrIPv4_4_LE">
+             <property name="maximumSize">
+              <size>
+               <width>33</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="readAPN_LE">
+           <property name="minimumSize">
             <size>
-             <width>33</width>
-             <height>16777215</height>
+             <width>300</width>
+             <height>0</height>
             </size>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="4">
+          <widget class="QPushButton" name="writeAdrIPv4_PB">
+           <property name="text">
+            <string>WRITE</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QComboBox" name="writeTCPUDPMode_CB">
+             <property name="insertPolicy">
+              <enum>QComboBox::InsertAlphabetically</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLineEdit" name="writePortTCP_LE">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="readAdrIPv4_LE"/>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="readTCPUDPMode_LE"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QPushButton" name="readTCPUDPMode_PB">
+           <property name="text">
+            <string>READ</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="4">
+          <widget class="QPushButton" name="writeTCPUDPMode_PB">
+           <property name="text">
+            <string>WRITE</string>
            </property>
           </widget>
          </item>
         </layout>
        </item>
-       <item row="5" column="1">
-        <widget class="QLineEdit" name="readAPN_LE">
-         <property name="minimumSize">
-          <size>
-           <width>300</width>
-           <height>0</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QLineEdit" name="readIPver_LE"/>
-       </item>
-       <item row="6" column="2">
-        <widget class="QLabel" name="label_8">
-         <property name="text">
-          <string>Software Version</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QPushButton" name="readAdrIPv4_PB">
-         <property name="text">
-          <string>READ</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="2">
-        <widget class="QLabel" name="label_6">
-         <property name="text">
-          <string>IP Version</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="3">
-        <widget class="QLineEdit" name="writePortUDP_LE"/>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="readPortTCP_LE"/>
-       </item>
-       <item row="1" column="2">
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>PORT UDP</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QLineEdit" name="readAdrIPv6_LE"/>
-       </item>
-       <item row="0" column="0">
-        <widget class="QPushButton" name="readPortTCP_PB">
-         <property name="text">
-          <string>READ</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QPushButton" name="readPortUDP_PB">
-         <property name="text">
-          <string>READ</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QLabel" name="label">
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="text">
-          <string>PORT TCP</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QPushButton" name="readAdrIPv6_PB">
-         <property name="text">
-          <string>READ</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="2">
-        <widget class="QLabel" name="label_7">
-         <property name="text">
-          <string>APN</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="3">
-        <widget class="QComboBox" name="writeIPver_CB"/>
-       </item>
-       <item row="5" column="0">
-        <widget class="QPushButton" name="readAPN_PB">
-         <property name="text">
-          <string>READ</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="3">
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="writeAdrIPv4_1_LE">
-           <property name="maximumSize">
-            <size>
-             <width>33</width>
-             <height>16777215</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_5">
-           <property name="text">
-            <string>.</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="writeAdrIPv4_2_LE">
-           <property name="maximumSize">
-            <size>
-             <width>33</width>
-             <height>16777215</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_9">
-           <property name="text">
-            <string>.</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="writeAdrIPv4_3_LE">
-           <property name="maximumSize">
-            <size>
-             <width>33</width>
-             <height>16777215</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_10">
-           <property name="text">
-            <string>.</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="writeAdrIPv4_4_LE">
-           <property name="maximumSize">
-            <size>
-             <width>33</width>
-             <height>16777215</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLineEdit" name="readAdrIPv4_LE"/>
-       </item>
-       <item row="5" column="3">
-        <widget class="QLineEdit" name="writeAPN_LE">
-         <property name="minimumSize">
-          <size>
-           <width>300</width>
-           <height>0</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="4">
-        <widget class="QPushButton" name="writePortTCP_PB">
-         <property name="text">
-          <string>WRITE</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="4">
-        <widget class="QPushButton" name="writePortUDP_PB">
-         <property name="text">
-          <string>WRITE</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="4">
-        <widget class="QPushButton" name="writeAdrIPv4_PB">
-         <property name="text">
-          <string>WRITE</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="4">
-        <widget class="QPushButton" name="writeAdrIPv6_PB">
-         <property name="text">
-          <string>WRITE</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="4">
-        <widget class="QPushButton" name="writeIPver_PB">
-         <property name="text">
-          <string>WRITE</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="4">
-        <widget class="QPushButton" name="writeAPN_PB">
-         <property name="text">
-          <string>WRITE</string>
+       <item>
+        <widget class="Line" name="line_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
         </widget>
        </item>
       </layout>
      </item>
      <item>
-      <widget class="Line" name="line_2">
+      <widget class="Line" name="line_4">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -567,39 +505,13 @@
      </item>
     </layout>
    </widget>
-   <widget class="QLabel" name="label_16">
-    <property name="geometry">
-     <rect>
-      <x>474</x>
-      <y>194</y>
-      <width>16</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_17">
-    <property name="geometry">
-     <rect>
-      <x>808</x>
-      <y>206</y>
-      <width>16</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>882</width>
+     <width>900</width>
      <height>21</height>
     </rect>
    </property>
